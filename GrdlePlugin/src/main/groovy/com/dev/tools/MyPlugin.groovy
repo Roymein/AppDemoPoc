@@ -1,4 +1,4 @@
-package com.dev
+package com.dev.tools
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
