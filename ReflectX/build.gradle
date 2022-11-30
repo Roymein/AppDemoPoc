@@ -7,11 +7,23 @@ dependencies {
 }
 
 version = 0.1
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 jar {
+    archivesBaseName = "Refect-X"
+    duplicatesStrategy DuplicatesStrategy.INCLUDE
     manifest {
-        attributes 'Main-Class':'com.dev.reflectx'
+        attributes 'Manifest-Version': 1.0
+        attributes 'Main-Class': 'com.dev.reflectx'
     }
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory()? it: zipTree(it)
+        }
+    }
+    exclude 'META-INF/*.RSA','META-INF/*.SF','META-INF/*.DSA'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }

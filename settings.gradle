@@ -1,3 +1,4 @@
 rootProject.name = "AppDemoPoc"
 include ':app'
 include ':ReflectX'
+include ':GrdlePlugin'
