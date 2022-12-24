@@ -9,7 +9,6 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.dev.poc"
         minSdk 33
         targetSdk 33
         versionCode 1
@@ -19,6 +18,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "int", "BUILD_TIME", "1111"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -30,6 +32,18 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+
+    flavorDimensions "price"
+    productFlavors {
+        free {
+            flavorDimensions "price"
+            applicationId "com.dev.poc"
+        }
+        paid {
+            flavorDimensions "price"
+            applicationId "com.dev.poc.paid"
+        }
     }
 }
 
@@ -54,7 +68,7 @@ ProjectVersion readVersion() {
         properties.load(it)
     }
     new ProjectVersion(properties.major.toInteger(), properties.minor.toInteger(),
-    properties.release.toBoolean())
+            properties.release.toBoolean())
 }
 
 class ProjectVersion {
@@ -62,7 +76,7 @@ class ProjectVersion {
     Integer minor
     Boolean release
 
-    ProjectVersion(Integer major,Integer minor, Boolean release) {
+    ProjectVersion(Integer major, Integer minor, Boolean release) {
         this.major = major
         this.minor = minor
         this.release = release
@@ -70,6 +84,20 @@ class ProjectVersion {
 
     @Override
     String toString() {
-        "$major.$minor${release?'':'-SNAPSHOT'}"
+        "$major.$minor${release ? '' : '-SNAPSHOT'}"
+    }
+}
+
+task myTest() {
+    doLast {
+        exec {
+            executable = 'java'
+            args = ['-version']
+        }
+
+        exec {
+            executable = 'adb'
+            args = ['shell', 'pm', 'path', 'com.android.settings']
+        }
     }
 }

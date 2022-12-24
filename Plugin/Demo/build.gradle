@@ -5,4 +5,5 @@ plugins {
 dependencies {
     implementation localGroovy()
     implementation gradleApi()
+    implementation "com.android.tools.build:gradle:7.0.3"
 }
