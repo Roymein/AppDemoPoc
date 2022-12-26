@@ -1,4 +1,5 @@
 rootProject.name = "AppDemoPoc"
-include ':Demo:Poc'
+include ':APP:Poc'
+include ':Library:ReflectX'
 include ':Plugin:Demo'
-include ':Tool:ReflectX'
+include ':Library:BaseLibrary'
