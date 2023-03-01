@@ -51,7 +51,9 @@ allprojects {
             allowInsecureProtocol = true
             url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
         }
-
+        maven {
+            url 'https://shoplivesdk.jfrog.io/artifactory/shoplive-sdk/'
+        }
     }
 }
 
