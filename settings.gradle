@@ -2,5 +2,4 @@ rootProject.name = "AppDemoPoc"
 include ':APP:Poc-Client'
 include ':APP:Poc-Service'
 include ':Library:ReflectX'
-include ':Plugin:Demo'
 include ':Library:Base'
