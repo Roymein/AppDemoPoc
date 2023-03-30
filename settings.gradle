@@ -1,5 +1,6 @@
 rootProject.name = "AppDemoPoc"
 include ':APP:Poc-Client'
 include ':APP:Poc-Service'
+include ':APP:EarthquakeViewer'
 include ':Library:ReflectX'
 include ':Library:Base'
