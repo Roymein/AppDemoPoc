@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.example.earthquake'
-    compileSdk 33
+    compileSdk androidConfig.compileSdkVersion
 
     defaultConfig {
         applicationId "com.example.earthquake"
-        minSdk 33
-        targetSdk 33
+        minSdk androidConfig.minSdkVersion
+        targetSdk androidConfig.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
